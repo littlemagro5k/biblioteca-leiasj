@@ -1,0 +1,17 @@
+:root {
+  --primary: #3771c8;
+  --primary-600: #2f63af;
+  --primary-hover: #2f63af;
+  --accent: #ffdd55;
+  --danger: #e5484d;
+  --success: #2f9e58;
+  --text: #0f1b2d;
+  --muted: #5a6c85;
+  --bg: #f7f9fc;
+  --panel: #ffffff;
+  --border: #e8eef7;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(15, 27, 45, 0.08);
+  --blur: blur(6px);
+  --font: "Inter", "Segoe UI", system-ui, Arial, sans-serif;
+}

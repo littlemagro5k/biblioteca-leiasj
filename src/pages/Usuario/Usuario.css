@@ -1,0 +1,250 @@
+/* ======= BASE GERAL ======= */
+.usuario-page {
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f0ff, #d4e3ff 60%, #bcd0ff);
+  background-attachment: fixed;
+  color: #0c1a35;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ======= CABEÇALHO ======= */
+.usuario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: #3771c8;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 14px;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* ======= BOTÃO SAIR ======= */
+.btn-sair {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #ffdd55;
+  color: #0c1a35;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-sair:hover {
+  background: #ffe97a;
+  transform: scale(1.05);
+}
+
+/* ======= LIVROS ======= */
+.livros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.livro-card {
+  background: #ffffffcc; /* leve transparência */
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.livro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.livro-card img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.livro-card h4 {
+  font-size: 15px;
+  margin: 8px 0 4px;
+  font-weight: 600;
+  color: #0c1a35;
+}
+
+.livro-card .autor {
+  color: #4a5568;
+  font-size: 13px;
+}
+
+.badge-indisponivel {
+  background: #ffe9a6;
+  color: #6b4e00;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+/* ======= BOTÕES ======= */
+.livro-card button {
+  background-color: #ffdd55;
+  color: #0c1a35;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.livro-card button:hover {
+  background-color: #ffe97a;
+  transform: scale(1.05);
+}
+
+.livro-card button:disabled {
+  background-color: #e6e6e6;
+  color: #8a8a8a;
+  cursor: not-allowed;
+}
+
+/* ======= NOTIFICAÇÕES ======= */
+.notif-wrapper {
+  position: relative;
+}
+
+.btn-bell {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.btn-bell.ativo {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.badge-dot {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #e74c3c;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.notif-panel {
+  position: absolute;
+  right: 0;
+  top: 36px;
+  width: 280px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  animation: slideDown 0.25s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notif-head {
+  background: #3771c8;
+  color: white;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-mini {
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 4px 8px;
+  background: #ffdd55;
+  color: #0c1a35;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-mini:hover {
+  background: #ffe97a;
+}
+
+.notif-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.notif-panel li {
+  padding: 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  color: #0c1a35;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ======= RESPONSIVO ======= */
+@media (max-width: 768px) {
+  .usuario-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .livros-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

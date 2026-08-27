@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: biblioteca-backend
+    env: python
+    plan: free
+    buildCommand: pip install --root-user-action=ignore -r requirements.txt
+    startCommand: gunicorn backend.app:app
+    envVars:
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /var/data/biblioteca.db
+      - key: FRONTEND_ORIGIN
+        value: https://seu-site.vercel.app,http://localhost:5173
+      - key: ENABLE_CROSS_SITE_COOKIES
+        value: "true"
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
+    disk:
+      name: biblioteca-data
+      mountPath: /var/data
+      sizeGB: 1

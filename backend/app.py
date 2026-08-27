@@ -77,9 +77,13 @@ else:
     app.config.setdefault('SESSION_COOKIE_SAMESITE', 'Lax')
     app.config.setdefault('SESSION_COOKIE_SECURE', False)
 
-DB = os.environ.get('DATABASE_PATH', 'biblioteca.db')
-if Path(DB).parent != Path('.'):
-    Path(DB).parent.mkdir(parents=True, exist_ok=True)
+DB = os.environ.get("DATABASE_PATH", "biblioteca.db")
+_db_parent = Path(DB).parent
+if str(_db_parent) not in ('.', '') and not _db_parent.exists():
+    try:
+        _db_parent.mkdir(parents=True, exist_ok=True)
+    except PermissionError:
+        DB = "biblioteca.db"  # fallback: banco local
 
 
 def _ensure_schema():
